@@ -21,4 +21,32 @@ def split_string(str1):
     string_pairs = [str1[i:i+2] for i in range(0, len(str1), 2)]
     return string_pairs
 
-#Q3 Create a function to determine if the count of each of the characters in a string can be equal if we remove
+#Q3 Create a function to determine if the count of each of the characters in a string can be equal if we remove a single character from that string
+
+# input - a string containing n number of characters
+# process - remove one character from the string
+# output - return true if the count is same when the character is removed else false.
+
+def solve(s):
+    frequencies = {}
+    for char in s:
+        if char in frequencies:
+            frequencies[char] += 1
+        else:
+            frequencies[char] = 1
+    values = list(frequencies.values())
+    unique_values = set(values)
+    
+    if len(unique_values) == 1:
+        return True
+
+    if len(unique_values) == 2:
+        freq1, freq2 = unique_values
+        count1 = values.count(freq1)
+        count2 = values.count(freq2)
+        
+        if (count1 == 1 and (freq1 == freq2 + 1 or freq1 == 1)) or \
+           (count2 == 1 and (freq2 == freq1 + 1 or freq2 == 1)):
+            return True
+
+    return False

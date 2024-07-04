@@ -50,3 +50,17 @@ def solve(s):
             return True
 
     return False
+
+"""With your birthday coming up soon, your eccentric friend sent you a message to say "happy birthday": At first it looks like a song, but upon closer investigation, you realize that your friend hid the phrase "happy birthday" thousands of times inside his message. In fact, it contains it more than 2 million times! To thank him, you'd like to reply with exactly how many times it occurs.
+To count all the occurences, the procedure is as follows: look through the paragraph and find a 'h'; then find an 'a' later in the paragraph; then find an 'p' after that, and so on. Now count the number of ways in which you can choose letters in this way to make the full phrase.
+More precisely, given a text string, you are to determine how many times the search string appears as a sub-sequence of that string.
+Write a function called countSubsequences that takes two arguments: needle, the string to be  search for and haystack, the string to search in. In our example, "happy birthday" is the needle and the birthday message is the haystack. The function should return the number of times needle occurs as a sub-sequence of haystack. Spaces are also considered part of the needle."""
+
+def count_subsequences(needle, haystack):
+    counts = [0] * (len(needle) + 1) # list to store each character in needle. The list is initialized to zero because we have not found any subsequence yet. 
+    counts[0] = 1 # empty needle is a subsequence of haystack
+    for char in haystack:
+        for i in range(len(needle) -1, -1, -1): # iterate through needle in reverse order using the same character twice
+            if char == needle[i]:
+                counts[i + i] += counts[i]
+    return counts[len(needle)]

@@ -19,7 +19,7 @@ This repository contains implementations of various data structures and algorith
 
 ## Algorithms
 
-1. **Algorithms**:
+1. **Sorting Algorithms**:
    - Bubble Sort
    - Selection Sort
    - Insertion Sort
@@ -28,6 +28,12 @@ This repository contains implementations of various data structures and algorith
    - Heap Sort
    - Recursion
    - Shell Sort
+
+2. **Algorithms for Searching Strings**:
+   - Linear Search: Simple approach where you check each character or substring sequentially.
+   - Knuth-Morris-Pratt (KMP) Algorithm: Efficient algorithm for substring searching that avoids unnecessary character comparisons.
+   - Boyer-Moore Algorithm: Another efficient algorithm for substring searching, focusing on skipping characters based on a preprocessing step.
+   - Rabin-Karp Algorithm: Uses hashing to find one or more patterns in a text string.
 
 ## Contributing
 
